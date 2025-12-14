@@ -6,7 +6,8 @@ export default function App() {
   const [vehicle, setVehicle] = useState(null);
 
   const search = async () => {
-    const res = await fetch(`http://localhost:4000/api/search?vin=${vin}`);
+    const API_URL = import.meta.env.VITE_API_URL;
+const res = await fetch(`${API_URL}/api/search?vin=${vin}`);
     const data = await res.json();
     setVehicle(data);
   };
