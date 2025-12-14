@@ -5,12 +5,13 @@ export default function App() {
   const [vin, setVin] = useState("");
   const [vehicle, setVehicle] = useState(null);
 
-  const search = async () => {
-    const API_URL = import.meta.env.VITE_API_URL;
-const res = await fetch(`${API_URL}/api/search?vin=${vin}`);
-    const data = await res.json();
-    setVehicle(data);
-  };
+ const API_URL = import.meta.env.VITE_API_URL;
+
+const search = async () => {
+  const res = await fetch(`${API_URL}/api/search?vin=${vin}`);
+  const data = await res.json();
+  setVehicle(data);
+};
 
   return (
     <div style={{ fontFamily: 'Arial', padding: 40 }}>
